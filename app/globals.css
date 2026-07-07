@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Grupo Abasto: Logo colors — Navy #163347 | Green #3a9e45 | Background: light gray #f2f4f6 */
+  --background: #f2f4f6;
+  --foreground: #0f2233;
+  --card: #ffffff;
+  --card-foreground: #0f2233;
+  --popover: #ffffff;
+  --popover-foreground: #0f2233;
+  /* Primary: Azul marino del camión y texto del logo */
+  --primary: #163347;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eef3;
+  --secondary-foreground: #163347;
+  --muted: #dde4ea;
+  --muted-foreground: #4a6070;
+  /* Accent: Verde del círculo check del logo */
+  --accent: #3a9e45;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #c8d5de;
+  --input: #dde4ea;
+  --ring: #3a9e45;
+  --chart-1: #163347;
+  --chart-2: #3a9e45;
+  --chart-3: #2a5c7a;
+  --chart-4: #5abf65;
+  --chart-5: #4d8aa3;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f2233;
+  --sidebar-primary: #163347;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3a9e45;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #c8d5de;
+  --sidebar-ring: #3a9e45;
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animations and styles */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #163347 0%, #1e4d6b 50%, #3a9e45 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(22, 51, 71, 0.15);
+    box-shadow: 0 8px 24px rgba(22, 51, 71, 0.12);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(22px) saturate(200%);
+    border: 1px solid rgba(22, 51, 71, 0.2);
+    box-shadow: 0 12px 36px rgba(22, 51, 71, 0.15);
+  }
+
+  .neomorphic {
+    background: linear-gradient(145deg, #ffffff, #eaf0f5);
+    box-shadow: 6px 6px 16px rgba(22, 51, 71, 0.12),
+                -4px -4px 12px rgba(255, 255, 255, 0.9);
+  }
+
+  .neomorphic-inset {
+    background: linear-gradient(145deg, #e4ecf2, #f0f5f8);
+    box-shadow: inset 4px 4px 10px rgba(22, 51, 71, 0.1),
+                inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+  }
+
+  .dynamic-island {
+    background: #163347;
+    color: #f0f4f8;
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(58, 158, 69, 0.4);
+    box-shadow: 0 14px 40px rgba(22, 51, 71, 0.35),
+                inset 0 1px 0 rgba(58, 158, 69, 0.2);
+  }
+
+  .magnetic-btn {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .line-mask {
+    background: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}

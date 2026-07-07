@@ -1,0 +1,125 @@
+ID,Nombre,Categoría,Descripción,Imagen
+1,Cloro de Perro,animal,"Cloro especial para áreas de perros. Elimina malos olores y desinfecta eficazmente.",/21.png
+2,Desinfectante,animal,"Desinfectante de alto rendimiento. Elimina el 99.9% de las bacterias. Fórmula sin cloro.",/18.png
+3,Sarricida Líquido,animal,"Sarricida líquido. Elimina insectos con acción prolongada y efectiva.",/6.png
+4,Sarricida Líquido Rojo,animal,"Sarricida líquido de alta potencia. Elimina insectos con acción prolongada y efectiva.",/25.png
+5,Limpiador tipo Pinol con Repelente,animal,"Limpiador tipo Pinol con repelente de insectos. Aroma fresco, limpieza profunda y ayuda a repeler insectos.",/23.png
+6,Pastillas Cloro,animal,"Prácticas y concentradas para desinfección continua. Ideales para sanitizar agua y mantener espacios higiénicos.",/28.png
+7,Limpiador Multiusos,oficinas,"Limpiador multiusos aroma a lavanda. Limpieza profunda y brillo prolongado en múltiples superficies.",/1.png
+8,Limpiador Multiusos Mar Fresco,oficinas,"Limpiador multiusos con fragancia refrescante a mar fresco. Limpieza profunda y brillo prolongado.",/5.png
+9,Limpiador Multiusos Lima Limón,oficinas,"Limpiador multiusos Lima Limón. Elimina suciedad con fragancia fresca. Uso en varias superficies.",/20.png
+10,Limpiador Multiusos Canela Manzana,oficinas,"Limpiador multiusos con fragancia a canela y manzana. Limpieza profunda y brillo prolongado.",/24.png
+11,Jabón para Manos,oficinas,"Jabón líquido para manos. Suave y cremoso. Limpieza e hidratación en cada lavado.",/9.png
+12,Limpiavidrios,oficinas,"Limpiavidrios de secado rápido. Limpieza sin marcas, brillo transparente en cristales y espejos.",/19.png
+13,Detergente para Ropa Negra,oficinas,"Detergente especial para ropa negra. Preserva el color y garantiza un lavado efectivo.",/11.png
+14,Detergente para Ropa,oficinas,"Fórmula de alto rendimiento que elimina manchas difíciles dejando la ropa limpia y fresca.",/29.png
+15,Suavizante,oficinas,"Suavizante con fragancia duradera. Aporta frescura y suavidad. Facilita el planchado.",/12.png
+16,Suavizante Azul,oficinas,"Suavizante con fragancia duradera. Frescura y suavidad en cada lavada. Facilita el planchado.",/15.png
+17,Bicarbonato de Sodio,oficinas,"Producto multiusos ideal para limpieza, desodorización y apoyo en diversas tareas del hogar.",/30.png
+18,Mechudo de Hilaza,oficinas,"Mechudo de hilaza estándar. Ideal para limpieza diaria de pisos.",/34.png
+19,Escoba de 4 Hilos Tipo Bruja,oficinas,"Escoba de 4 hilos tipo bruja. Clásica y eficiente para barrido general.",/36.png
+20,Recogedor de Plástico Chico,oficinas,"Recogedor de plástico chico. Complemento ideal para la escoba.",/48.png
+21,Jerga,oficinas,"Jerga multiusos. Versátil y resistente. Ideal para limpieza general en distintas superficies.",/51.jpg
+22,Trapo Microfibra Azul Membersmark,oficinas,"Trapo de microfibra azul Membersmark. Alta absorción y gran capacidad para atrapar polvo y suciedad sin rayar superficies.",/45.jpg
+23,Cubeta Forma Normal 10 Litros,oficinas,"Cubeta normal de 10 litros. Resistente para uso diario en limpieza.",/44.jpg
+24,Cepillo,oficinas,"Cepillo para limpieza. Resistente y de uso práctico en diversas superficies.",/50.png
+25,Atomizador Plástico,oficinas,"Atomizador plástico reutilizable. Para aplicar líquidos de limpieza con precisión.",/56.jpg
+26,Fabuloso Cascada,oficinas,"Fabuloso Cascadas. Aroma fresco y limpieza profunda.",/22.png
+27,Charola Chica,alimentos,"Charola desechable chica de unicel. Para servir alimentos en porciones pequeñas.",/94.png
+28,Charola Hamburguesa,alimentos,"Charola de unicel tipo hamburguesa. Para servir hamburguesas y comida rápida.",/99.jpg
+29,Charola Elotera,alimentos,"Charola de unicel tipo elotera. Ideal para servir elotes y antojitos.",/98.png
+30,Charola 066,alimentos,"Charola de unicel modelo 066. Para presentación de alimentos en taquería y cocina.",/113.png
+31,Charola Chica Reyma,alimentos,"Charola chica marca Reyma. Resistente y apta para servicio de alimentos.",/109.png
+32,Contenedor 7x7,alimentos,"Contenedor desechable 7x7 pulgadas. Para empaque de alimentos con tapa.",/100.png
+33,Contenedor 8x8,alimentos,"Contenedor desechable 8x8 pulgadas. Para porciones generosas de comida.",/101.png
+34,Charola de Unicel Muy Grande PQT 10 pzas,alimentos,"Charola de unicel extra grande, paquete de 10 piezas. Para presentación de alimentos en grandes porciones.",/108.png
+35,Cuchillo,alimentos,"Cuchillo desechable de plástico. Resistente para uso en negocios de alimentos.",/95.png
+36,Tenedores,alimentos,"Tenedores desechables de plástico. Resistentes y prácticos para eventos y negocios.",/96.png
+37,Cucharas,alimentos,"Cucharas desechables de plástico. Ligeras y resistentes para uso en alimentos.",/97.png
+38,Vaso de 12 oz para Café,alimentos,"Vaso desechable de 12 oz para café. Diseño para mantener la temperatura.",/103.png
+39,Tapa de 12 oz para Café,alimentos,"Tapa de plástico para vaso de café de 12 oz. Compatible con vasos estándar.",/102.png
+40,Vaso 5 oz,alimentos,"Vaso desechable de 5 onzas. Para muestras y porciones pequeñas de bebidas.",/105.png
+41,Vaso del Cero,alimentos,"Vaso desechable del Cero. Presentación económica para bebidas frías.",/106.png
+42,Tapa del Cero,alimentos,"Tapa compatible con el Vaso del Cero. Cierre seguro para bebidas.",/107.png
+43,Popote Desechable Económico,alimentos,"Popote desechable económico. Paquete individual para todo tipo de bebidas.",/112.png
+44,Aluminio 400,alimentos,"Rollo de papel aluminio calibre 400. Para cocina, empaque y conservación de alimentos.",/110.png
+45,Papel Mantel Rojo y Blanco 1000 piezas,alimentos,"Papel mantel cuadriculado rojo y blanco, 1000 piezas. Para fondas y restaurantes.",/111.png
+46,Servilletas Paquete 500 pzas Colibrí Persa,alimentos,"Servilletas Colibrí Persa, paquete de 500 piezas. Para restaurantes y eventos.",/86.png
+47,Servilletas 250,alimentos,"Servilletas blancas, paquete de 250 piezas. Uso en mesa para restaurantes.",/91.png
+48,Servilletas 1x1 Marli 250,alimentos,"Servilletas 1x1 marca Marli, paquete de 250 piezas. Suaves y resistentes.",/92.png
+49,Servilletas Paquete 450 Marli Abejita,alimentos,"Servilletas marca Marli Abejita, paquete de 450 piezas. Suaves y resistentes para mesa.",/93.png
+50,Jabón para Trastes,alimentos,"Jabón líquido para trastes. Remueve grasa fácilmente. Rinde más al lavar. Fórmula concentrada.",/13.png
+51,Quitacochambre en Gel,alimentos,"Quitacochambre en gel. Desengrasa sin restregar con poderosa fórmula en gel.",/7.png
+52,Bolsa de Plástico Cortada 8x12 (Salsera),alimentos,"Bolsa plástica cortada tipo salsera, 8x12 cm. Para salsas y condimentos.",/72.png
+53,Bolsa en Rollo de Lámina 20x30,alimentos,"Bolsa en rollo de lámina, medida 20x30 cm. Para empaque de alimentos.",/74.png
+54,Servitoalla Kihara 160,alimentos,"Servitoalla de papel Kihara, presentación 160 hojas. Suave y absorbente.",/82.png
+55,Papel de Baño Rollo Institucional Jumbo,alimentos,"Papel higiénico rollo institucional Jumbo. Alta capacidad para uso en negocios.",/83.png
+56,Papel de Baño Rollo 180m GCPaper,alimentos,"Papel higiénico GCPaper en rollo de 180 metros. Rendimiento y calidad garantizados.",/84.png
+57,Toalla de Papel Rollo 180 metros Marli,alimentos,"Toalla de papel en rollo de 180 metros, marca Marli. Para secado de manos.",/85.png
+58,Vinil para Autos,automotriz,"Vinil para autos. Limpia, protege y da brillo. Ideal para interiores. Efecto antiestático.",/14.png
+59,Shampoo para Autos,automotriz,"Shampoo para autos. Brillo y protección. Remueve suciedad con abundante espuma.",/16.png
+60,Limpiador de Pisos,automotriz,"Limpiador para pisos con fragancia floral. Elimina grasa difícil y pegada. Uso en múltiples superficies.",/3.png
+61,Limpiador para Pisos,automotriz,"Limpiador para pisos con brillo intenso. Limpieza profunda y aroma fresco duradero.",/17.png
+62,Limpiador para Pisos Naranja,automotriz,"Limpiador para pisos con brillo impecable. Secado rápido y fresca fragancia.",/27.png
+63,Quitasarro Líquido,automotriz,"Quitasarro líquido. Remueve sarro y óxido con poderosa fórmula líquida.",/10.png
+64,Quitasarro en Gel,automotriz,"Quitasarro en gel de alto rendimiento. Remueve sarro y óxido con fórmula en gel potente.",/26.png
+65,Desengrasante Industrial,automotriz,"Desengrasante industrial. Desincrusta grasa y suciedad con poderosa fórmula concentrada.",/8.png
+66,Fibra Metálica Chica Paquete 2 pzas,automotriz,"Fibra metálica chica, paquete de 2 piezas. Ideal para remover grasa y residuos difíciles en superficies resistentes.",/46.jpg
+67,Mechudo de Hilaza #24 Industrial,automotriz,"Mechudo de hilaza #24 industrial. Resistente y de gran rendimiento para uso intensivo.",/32.png
+68,Mechudo de Microfibra Española,automotriz,"Mechudo de microfibra española. Alta absorción y durabilidad para limpieza de pisos.",/33.png
+69,Mechudo Premium de Microfibra,automotriz,"Mechudo premium de microfibra. Máxima calidad para una limpieza superior.",/35.png
+70,Mechudo de Microfibra Trenzada,automotriz,"Mechudo de microfibra trenzada. Excelente absorción y limpieza sin dejar residuos.",/39.jpg
+71,Jalador Metálico 40 cm,automotriz,"Jalador metálico de 40 centímetros. Diseñado para remover líquidos en pisos con mayor cobertura y eficiencia.",/55.jpg
+72,Cloro,automotriz,"Cloro sin aroma. Elimina bacterias y mantiene superficies blancas y desinfectadas.",/4.png
+73,Rollo de Emplaye 18 pulgadas Calibre 60,industrias,"Rollo de emplaye de 18 pulgadas, calibre 60. Para embalaje y protección de mercancía.",/130.png
+74,Rollo de Emplaye 1° Grado Alimenticio,industrias,"Rollo de emplaye grado alimenticio. Apto para contacto directo con alimentos.",/135.png
+75,Guantes Negros,industrias,"Guantes negros desechables. Para manejo de alimentos e higiene.",/131.png
+76,Guantes de Seguridad de Carnaza,industrias,"Guantes de seguridad de carnaza. Protección resistente para manejo de materiales.",/132.png
+77,Flejadora Manual Traspack con Pinzas,industrias,"Flejadora manual Traspack con pinzas. Para flejar mercancía de forma rápida y segura.",/133.png
+78,Fleje Negro,industrias,"Fleje negro de plástico para sujetar y asegurar mercancía en pallets.",/134.png
+79,Bote de Basura sin Tapa,industrias,"Bote de basura sin tapa. Para recolección de residuos en espacios abiertos.",/136.png
+80,Bote de Basura con Tapa,industrias,"Bote de basura con tapa. Resistente para uso en cocinas y negocios.",/137.png
+81,Bolsa Polipel 60x90,industrias,"Bolsa negra Polipel de alta resistencia, medida 60x90 cm. Para basura y carga.",/68.png
+82,Bolsa Polipel 90x120,industrias,"Bolsa negra Polipel extra grande, medida 90x120 cm. Uso industrial.",/69.png
+83,Bolsa Polipel 20x30,industrias,"Bolsa negra Polipel chica, medida 20x30 cm. Para residuos pequeños.",/70.png
+84,Bolsa Negra Jumbo,industrias,"Bolsa negra jumbo de alta capacidad. Resistente para residuos pesados.",/71.png
+85,Bolsa Negra 90x120,industrias,"Bolsa negra extra resistente, medida 90x120 cm. Uso comercial e industrial.",/76.jpg
+86,Bolsa en Rollo 15x25 Poliseda,industrias,"Bolsa en rollo de poliseda, medida 15x25 cm. Ideal para uso doméstico y comercial.",/60.png
+87,Bolsa en Rollo 20x30 Poliseda,industrias,"Bolsa en rollo de poliseda, medida 20x30 cm. Resistente y versátil.",/61.png
+88,Bolsa en Rollo 25x35 Poliseda,industrias,"Bolsa en rollo de poliseda, medida 25x35 cm. Para empaque de productos.",/62.png
+89,Bolsa en Rollo 30x40 Poliseda,industrias,"Bolsa en rollo de poliseda, medida 30x40 cm. Mayor capacidad para negocios.",/63.png
+90,Bolsa en Rollo 15x25 Plástico,industrias,"Bolsa en rollo de plástico transparente, medida 15x25 cm.",/64.png
+91,Bolsa en Rollo 20x30,industrias,"Bolsa en rollo de plástico transparente, medida 20x30 cm.",/65.png
+92,Bolsa en Rollo 25x35,industrias,"Bolsa en rollo de plástico transparente, medida 25x35 cm.",/66.png
+93,Bolsa en Rollo 30x40,industrias,"Bolsa en rollo de plástico transparente, medida 30x40 cm.",/67.png
+94,Bolsa Tipo Camiseta,industrias,"Bolsa tipo camiseta reutilizable. Práctica y resistente para todo uso.",/77.png
+95,Bolsa de Tela con Asa,industrias,"Bolsa de tela con asa. Resistente y reutilizable.",/79.png
+96,Bolsa de Plástico con Asa,industrias,"Bolsa de plástico con asa. Práctica y versátil.",/80.png
+97,Bolsa de Basura 60x90 Verde Botella,industrias,"Bolsa para basura color verde botella, medida 60x90 cm.",/75.png
+98,Bote 5L,industrias,"Bote de 5 litros. Práctico para almacenar productos de limpieza.",/47.jpg
+99,Bidón 20L,industrias,"Bidón de 20 litros. Para almacenar y transportar líquidos de limpieza.",/49.png
+100,Escoba Uso Rudo de Cepillo,industrias,"Escoba de uso rudo tipo cepillo. Resistente para barrer superficies difíciles.",/41.jpg
+101,Escoba Cepillo de Abanico,industrias,"Escoba tipo cepillo de abanico. Ideal para áreas amplias y exteriores.",/42.jpg
+102,Escoba Tipo Cepillo Chico,industrias,"Escoba tipo cepillo chico. Práctica para espacios reducidos y esquinas.",/43.png
+103,Extensión de Escoba 1.5 mts,industrias,"Extensión de escoba de 1.5 metros. Compatible con múltiples tipos de escoba.",/37.png
+104,Mechudo de Algodón Cerdas Grandes,industrias,"Mechudo de algodón con cerdas grandes. Mayor cobertura para limpieza eficiente.",/38.jpg
+105,Recogedor de Plástico Grande,industrias,"Recogedor de plástico grande. Mayor capacidad para recolección eficiente.",/53.jpg
+106,Cepillo de Castor,industrias,"Cepillo de castor. Solución práctica para barrido y recolección eficiente.",/57.jpg
+107,Pastillas Wise,industrias,"Pastillas Wise para limpieza. Eficaces y de alto rendimiento.",/59.jpg
+108,Sobres de Nómina 100 piezas La Mariposa,industrias,"Sobres de nómina La Mariposa, paquete de 100 piezas. Para pago de empleados.",/138.jpg
+109,Cinta Adhesiva,industrias,"Cinta adhesiva transparente. Resistente para empaque, sellar y oficina.",/139.jpg
+110,Rollo Ticket 80x80,industrias,"Rollo de papel térmico para ticket, medida 80x80 mm. Para cajas registradoras.",/140.jpg
+111,Block de Comandas,industrias,"Block de comandas para restaurante. Registro fácil de pedidos en mesa.",/141.jpg
+112,Marcador Permanente,industrias,"Marcador permanente. Tinta indeleble para marcar superficies y documentos.",/142.jpg
+113,Pluma Negra,industrias,"Pluma bolígrafo de tinta negra. Escritura fluida y duradera.",/143.jpg
+114,Pluma Roja,industrias,"Pluma bolígrafo de tinta roja. Para correcciones y marcado de documentos.",/144.jpg
+115,Post-it Grande,industrias,"Notas adhesivas Post-it tamaño grande. Para organización y recordatorios.",/145.jpg
+116,Bloc de Remisión un Cuarto,industrias,"Bloc de remisión tamaño un cuarto. Para control de entregas y pedidos.",/146.jpg
+117,Hojas Bond,industrias,"Hojas bond de alta calidad. Para impresiones y documentos.",/147.jpg
+118,Grapas Estándar,industrias,"Grapas estándar para engrapadora. Para unir documentos de forma segura.",/148.png
+119,Marcatextos,industrias,"Marcatextos de colores fluorescentes. Para resaltar texto en documentos.",/149.jpg
+120,Post-its,industrias,"Notas adhesivas Post-its. Colores variados para organización rápida.",/150.png
+121,Folder 100 Color Carta,industrias,"Folder tamaño carta, paquete de 100 piezas. Para organizar documentos.",/151.jpg
+122,Sobres Tamaño Oficio 25 piezas La Mariposa,industrias,"Sobres tamaño oficio La Mariposa, 25 piezas. Para envíos y correspondencia.",/152.jpg
+123,Papel Térmico,industrias,"Papel térmico para impresoras y cajas registradoras.",/154.jpg
+124,Engrapadora,industrias,"Engrapadora de escritorio. Para unir documentos de forma segura.",/155.png
