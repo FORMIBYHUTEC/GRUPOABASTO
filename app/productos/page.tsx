@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "Catálogo de productos de limpieza, empaques, papelería y más para tu negocio.",
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function ProductosPage() {
   const { data: products, error } = await supabase
     .from("products")
