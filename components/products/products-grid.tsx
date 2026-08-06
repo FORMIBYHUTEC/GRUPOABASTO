@@ -22,6 +22,20 @@ interface Product {
   price?: number | null
 }
 
+interface CartItem {
+  id: string | number
+  name: string
+  qty: number
+  image?: string
+  price?: number | null
+}
+
+const formatPrice = (price: number) =>
+  `$${price.toLocaleString("es-MX", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`
+
 const categories = [
   { id: "all", name: "Todos" },
   { id: "limpieza-general", name: "Limpieza General" },
@@ -48,7 +62,8 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
   const searchParams = useSearchParams()
   const [activeCategory, setActiveCategory] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const [cart, setCart] = useState<{ id: string | number; name: string; qty: number; image?: string }[]>([])
+  const [cart, setCart] = useState<CartItem[]>([])
+  const [isCartReady, setIsCartReady] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [visibleCount, setVisibleCount] = useState(20)
 
@@ -64,17 +79,27 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
     const savedCart = localStorage.getItem('grupoAbastoCart')
     if (savedCart) {
       try {
-        setCart(JSON.parse(savedCart))
+        const savedItems = JSON.parse(savedCart) as CartItem[]
+        setCart(
+          savedItems.map((savedItem) => {
+            const product = products.find((product) => product.id === savedItem.id)
+            return product
+              ? { ...savedItem, name: product.name, image: product.image, price: product.price }
+              : savedItem
+          }),
+        )
       } catch (e) {
         console.error('Error loading cart from localStorage:', e)
       }
     }
-  }, [])
+    setIsCartReady(true)
+  }, [products])
 
   // Save cart to localStorage on every cart change
   useEffect(() => {
+    if (!isCartReady) return
     localStorage.setItem('grupoAbastoCart', JSON.stringify(cart))
-  }, [cart])
+  }, [cart, isCartReady])
 
   // Listen for search query changes from ProductsHero
   useEffect(() => {
@@ -106,9 +131,10 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
   }, [])
 
   useEffect(() => {
+    if (!isCartReady) return
     const event = new CustomEvent('cartUpdated', { detail: cart })
     window.dispatchEvent(event)
-  }, [cart])
+  }, [cart, isCartReady])
 
   const filteredProducts = useMemo(() => {
     const activeCategories = activeCategory === "all" ? [] : (categorySlugMap[activeCategory] || [activeCategory])
@@ -136,14 +162,17 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
     setCart((prev) => {
       const existing = prev.find((p) => p.id === productId)
       if (existing) return prev.map((p) => (p.id === productId ? { ...p, qty: p.qty + 1 } : p))
-      return [...prev, { id: item.id, name: item.name, qty: 1, image: item.image }]
+      return [...prev, { id: item.id, name: item.name, qty: 1, image: item.image, price: item.price }]
     })
   }
 
   const whatsappLink = useMemo(() => {
     if (cart.length === 0) return "#"
     const lines = cart
-      .map((item) => `• ${item.name} x${item.qty}`)
+      .map((item) => {
+        if (typeof item.price !== "number") return `• ${item.name} x${item.qty}`
+        return `• ${item.name} x${item.qty} — ${formatPrice(item.price)} c/u (${formatPrice(item.price * item.qty)})`
+      })
       .join("\n")
     const msg = `Pedido Grupo Abasto - León\n\nProductos:\n${lines}\n\nPor favor confirma tu pedido.`
     return `https://wa.me/524792939496?text=${encodeURIComponent(msg)}`

@@ -19,7 +19,14 @@ interface CartItem {
   name: string
   qty: number
   image?: string
+  price?: number | null
 }
+
+const formatPrice = (price: number) =>
+  `$${price.toLocaleString("es-MX", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`
 
 // Stagger container variants
 const menuContainerVariants: Variants = {
@@ -349,9 +356,23 @@ export function DynamicIslandMenu() {
                                         />
                                       </div>
                                     )}
-                                    <span className="text-white/85 truncate flex-1 font-medium text-[13px]">{item.name}</span>
-                                    <span className="font-black text-[#163347] text-[11px] px-2 py-0.5 rounded-lg shrink-0"
-                                      style={{ background: "#5abf65" }}>×{item.qty}</span>
+                                    <div className="min-w-0 flex-1">
+                                      <span className="block text-white/85 truncate font-medium text-[13px]">{item.name}</span>
+                                      {typeof item.price === "number" && (
+                                        <span className="block text-[#7dd87f] text-[11px] mt-0.5">
+                                          {formatPrice(item.price)} c/u
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div className="flex flex-col items-end shrink-0 gap-1">
+                                      <span className="font-black text-[#163347] text-[11px] px-2 py-0.5 rounded-lg"
+                                        style={{ background: "#5abf65" }}>×{item.qty}</span>
+                                      {typeof item.price === "number" && (
+                                        <span className="text-white/60 text-[10px]">
+                                          {formatPrice(item.price * item.qty)}
+                                        </span>
+                                      )}
+                                    </div>
                                     <motion.button
                                       onClick={(e) => {
                                         e.stopPropagation()
@@ -381,7 +402,12 @@ export function DynamicIslandMenu() {
                           className="w-full text-white rounded-xl py-5 font-bold text-[15px] relative overflow-hidden group border-0"
                           style={{ background: "linear-gradient(135deg, #3a9e45 0%, #2c7a35 100%)", boxShadow: "0 6px 24px rgba(58,158,69,0.45)" }}
                           onClick={() => {
-                            const lines = cart.map((item) => `• ${item.name} x${item.qty}`).join("\n")
+                            const lines = cart
+                              .map((item) => {
+                                if (typeof item.price !== "number") return `• ${item.name} x${item.qty}`
+                                return `• ${item.name} x${item.qty} — ${formatPrice(item.price)} c/u (${formatPrice(item.price * item.qty)})`
+                              })
+                              .join("\n")
                             const msg = `Pedido Grupo Abasto - León\n\nProductos:\n${lines}\n\nPor favor confirma tu pedido.`
                             window.open(`https://wa.me/524792939496?text=${encodeURIComponent(msg)}`, "_blank")
                           }}
