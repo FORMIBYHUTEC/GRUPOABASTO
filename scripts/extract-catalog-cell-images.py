@@ -15,7 +15,7 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("public/catalog-images/catalogo-con-precios-1"),
+        default=Path("/private/tmp/catalogo-con-precios-1"),
     )
     args = parser.parse_args()
 

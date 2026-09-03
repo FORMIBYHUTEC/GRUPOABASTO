@@ -14,7 +14,7 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from catalog_excel_images import PUBLIC_IMAGE_PREFIX, cell_image_media_by_row
+from catalog_excel_images import STORAGE_IMAGE_PREFIX, cell_image_media_by_row
 
 
 DEFAULT_OUTPUT = Path("supabase/migrations/20260831_import_catalogo_con_precios_1.sql")
@@ -213,7 +213,7 @@ def main() -> None:
                 "indicator_codes": parse_indicators(row[4]),
                 "price": prices.get(sku),
                 "image_url": (
-                    f"{PUBLIC_IMAGE_PREFIX}/{cell_images_by_row[row_number]}"
+                    f"{STORAGE_IMAGE_PREFIX}/{Path(cell_images_by_row[row_number]).stem}.webp"
                     if row_number in cell_images_by_row
                     else None
                 ),

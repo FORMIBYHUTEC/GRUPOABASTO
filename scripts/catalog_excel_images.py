@@ -12,7 +12,10 @@ from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 
-PUBLIC_IMAGE_PREFIX = "/catalog-images/catalogo-con-precios-1"
+STORAGE_IMAGE_PREFIX = (
+    "https://pjbmrocrfbzfvivasoxw.supabase.co/storage/v1/object/public/"
+    "product-images/catalogo-con-precios-1/optimized"
+)
 
 SHEET_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"

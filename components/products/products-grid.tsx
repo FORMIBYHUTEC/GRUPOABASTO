@@ -37,6 +37,16 @@ const formatPrice = (price: number) =>
     maximumFractionDigits: 2,
   })}`
 
+const originalCatalogImagePattern =
+  /^https:\/\/pjbmrocrfbzfvivasoxw\.supabase\.co\/storage\/v1\/object\/public\/product-images\/catalogo-con-precios-1\/(image\d+)\.png$/
+const optimizedCatalogImagePrefix =
+  "https://pjbmrocrfbzfvivasoxw.supabase.co/storage/v1/object/public/product-images/catalogo-con-precios-1/optimized"
+
+// Existing database rows may still contain the original PNG URL. Render the
+// matching WebP from Storage immediately, even before the SQL is re-run.
+const optimizedImageUrl = (url?: string | null) =>
+  url?.replace(originalCatalogImagePattern, `${optimizedCatalogImagePrefix}/$1.webp`) || url
+
 const categories = [
   { id: "all", name: "Todos" },
   { id: "limpieza-general", name: "Limpieza General" },
@@ -71,7 +81,7 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
   const products = useMemo(() => {
     return rawProducts.map((p) => ({
       ...p,
-      image: p.image || p.image_url || "/placeholder.svg",
+      image: optimizedImageUrl(p.image || p.image_url) || "/placeholder.svg",
     }))
   }, [rawProducts])
 
@@ -261,7 +271,7 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
           <div className="mt-8 text-center">
             <Button
               variant="outline"
-              className="rounded-full px-8 py-5 text-sm font-medium border-[#3a9e45]/30 text-white hover:bg-[#3a9e45]/10"
+              className="rounded-full border-2 border-[#3a9e45] bg-white px-8 py-5 text-sm font-semibold text-[#163347] shadow-sm hover:bg-[#eaf7ed] hover:text-[#163347]"
               onClick={() => setVisibleCount((prev) => prev + 20)}
             >
               Cargar más productos ({filteredProducts.length - visibleCount} restantes)
@@ -270,8 +280,8 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
         )}
 
         {/* Cart info */}
-        <div className="mt-8 rounded-2xl p-4 text-center" style={{ background: "rgba(58,158,69,0.08)", border: "1px solid rgba(58,158,69,0.15)" }}>
-          <p className="text-white/60 text-xs sm:text-sm">
+        <div className="mt-8 rounded-2xl border border-[#b7dfbd] bg-[#eaf7ed] p-4 text-center shadow-sm">
+          <p className="text-xs font-medium text-[#163347] sm:text-sm">
             Usa el menú inferior para ver tu carrito y hacer pedido por WhatsApp
           </p>
         </div>

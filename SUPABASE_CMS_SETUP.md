@@ -33,7 +33,21 @@ Después de tener creada la tabla `products`, ejecuta en el SQL Editor de Supaba
 
 `supabase/migrations/20260831_import_catalogo_con_precios_1.sql`
 
-La migración sincroniza la tabla `products` con el Excel: agrega los campos `sku`, `catalog_category` e `indicator_codes`, carga los precios de envases y enlaza 81 productos equivalentes del catálogo vigente. Estos conservan su nombre, descripción, categoría e imagen; sólo se les agrega SKU, precio e indicadores. Las imágenes incrustadas en la columna C de `Hoja2` se extraen a `public/catalog-images/catalogo-con-precios-1/` y se asignan al producto de esa misma fila. Al final elimina de la tabla los productos que no estén en este Excel, por lo que el catálogo queda exactamente con sus 164 SKUs únicos. El archivo de origen repite el SKU `PLA-4060-COR`, por lo que se importa una sola vez.
+La migración sincroniza la tabla `products` con el Excel: agrega los campos `sku`, `catalog_category` e `indicator_codes`, carga los precios de envases y enlaza 81 productos equivalentes del catálogo vigente. Estos conservan su nombre, descripción, categoría e imagen; sólo se les agrega SKU, precio e indicadores. Las imágenes incrustadas en la columna C de `Hoja2` se extraen y suben al bucket `product-images/catalogo-con-precios-1/` de Supabase Storage; la migración asigna al producto la URL de Storage de su misma fila. Al final elimina de la tabla los productos que no estén en este Excel, por lo que el catálogo queda exactamente con sus 164 SKUs únicos. El archivo de origen repite el SKU `PLA-4060-COR`, por lo que se importa una sola vez.
+
+Para volver a cargar las imágenes desde el Excel:
+
+```bash
+python3 scripts/extract-catalog-cell-images.py --workbook "/ruta/Catalogo con Precios 1.xlsx"
+node scripts/upload-catalog-images-to-supabase.mjs
+```
+
+Las versiones que muestra el catálogo se optimizan a WebP antes de subirlas:
+
+```bash
+python3 scripts/optimize-catalog-images.py
+node scripts/upload-catalog-images-to-supabase.mjs /private/tmp/catalogo-con-precios-1-webp catalogo-con-precios-1/optimized
+```
 
 Para comprobar la carga, ejecuta después. El resultado esperado es **164 productos**: 81 conservan su imagen actual y los nuevos toman la imagen disponible en la celda C de su fila del Excel.
 
