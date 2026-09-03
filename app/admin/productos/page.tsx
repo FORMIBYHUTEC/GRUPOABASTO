@@ -26,9 +26,12 @@ import { toast } from "sonner"
 
 type Product = {
   id: string
+  sku: string | null
   name: string
   description: string
   category: string
+  catalog_category: string | null
+  indicator_codes: number[]
   image_url: string | null
   price: number | null
   is_active: boolean
@@ -57,9 +60,12 @@ export default function AdminProductosPage() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null)
   const [uploadingImage, setUploadingImage] = useState(false)
   const [formData, setFormData] = useState({
+    sku: "",
     name: "",
     description: "",
     category: "",
+    catalog_category: "",
+    indicator_codes: "",
     price: "",
     image_url: "",
     is_active: true,
@@ -108,9 +114,12 @@ export default function AdminProductosPage() {
   const openCreateDialog = () => {
     setEditingProduct(null)
     setFormData({
+      sku: "",
       name: "",
       description: "",
       category: "",
+      catalog_category: "",
+      indicator_codes: "",
       price: "",
       image_url: "",
       is_active: true,
@@ -121,9 +130,12 @@ export default function AdminProductosPage() {
   const openEditDialog = (product: Product) => {
     setEditingProduct(product)
     setFormData({
+      sku: product.sku || "",
       name: product.name,
       description: product.description,
       category: product.category,
+      catalog_category: product.catalog_category || "",
+      indicator_codes: product.indicator_codes?.join(", ") || "",
       price: product.price?.toString() || "",
       image_url: product.image_url || "",
       is_active: product.is_active,
@@ -160,11 +172,24 @@ export default function AdminProductosPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const indicatorCodes = formData.indicator_codes
+      .split(/[\s,]+/)
+      .filter(Boolean)
+      .map(Number)
+
+    if (indicatorCodes.some((code) => !Number.isInteger(code) || code < 1 || code > 5)) {
+      toast.error("Los indicadores deben ser números del 1 al 5")
+      return
+    }
+
     setLoading(true)
 
     try {
       const payload = {
         ...formData,
+        sku: formData.sku.trim() || null,
+        catalog_category: formData.catalog_category.trim() || null,
+        indicator_codes: [...new Set(indicatorCodes)].sort((a, b) => a - b),
         price: formData.price ? parseFloat(formData.price) : null,
       }
 
@@ -218,6 +243,7 @@ export default function AdminProductosPage() {
     return products.filter(
       (p) =>
         p.name.toLowerCase().includes(query) ||
+        p.sku?.toLowerCase().includes(query) ||
         p.description.toLowerCase().includes(query) ||
         categories.find((c) => c.id === p.category)?.name.toLowerCase().includes(query)
     )
@@ -351,10 +377,11 @@ export default function AdminProductosPage() {
                     {categories.find(c => c.id === product.category)?.name || product.category}
                   </span>
                 </div>
+                {product.sku && <p className="text-xs font-mono text-gray-400 mb-2">SKU: {product.sku}</p>}
                 <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-grow">{product.description}</p>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-lg font-bold" style={{ color: "#163347" }}>
-                    {product.price ? `$${product.price.toFixed(2)}` : "—"}
+                    {product.price !== null ? `$${product.price.toFixed(2)}` : "—"}
                   </span>
                   <div className="flex items-center gap-2">
                     <Switch
@@ -412,6 +439,15 @@ export default function AdminProductosPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5 mt-4">
             <div>
+              <Label>SKU</Label>
+              <Input
+                value={formData.sku}
+                onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
+                placeholder="Ej: LIM-CLR-REPUESTO"
+              />
+            </div>
+
+            <div>
               <Label>Nombre del producto</Label>
               <Input
                 value={formData.name}
@@ -439,6 +475,26 @@ export default function AdminProductosPage() {
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <Label>Categoría de catálogo</Label>
+                <Input
+                  value={formData.catalog_category}
+                  onChange={(e) => setFormData({ ...formData, catalog_category: e.target.value })}
+                  placeholder="Ej: Limpieza"
+                />
+              </div>
+              <div>
+                <Label>Indicadores</Label>
+                <Input
+                  value={formData.indicator_codes}
+                  onChange={(e) => setFormData({ ...formData, indicator_codes: e.target.value })}
+                  placeholder="Ej: 1, 2, 3"
+                />
+                <p className="text-xs text-gray-500 mt-1">Separa los códigos del 1 al 5 con comas.</p>
+              </div>
             </div>
 
             <div>

@@ -27,6 +27,29 @@ Las credenciales de Supabase fueron compartidas en el chat. **Debes rotarlas inm
 
 ## Pasos para activar el CMS
 
+## Importar el catálogo con precios, SKU e indicadores
+
+Después de tener creada la tabla `products`, ejecuta en el SQL Editor de Supabase el contenido de:
+
+`supabase/migrations/20260831_import_catalogo_con_precios_1.sql`
+
+La migración sincroniza la tabla `products` con el Excel: agrega los campos `sku`, `catalog_category` e `indicator_codes`, carga los precios de envases y enlaza 81 productos equivalentes del catálogo vigente. Estos conservan su nombre, descripción, categoría e imagen; sólo se les agrega SKU, precio e indicadores. Las imágenes incrustadas en la columna C de `Hoja2` se extraen a `public/catalog-images/catalogo-con-precios-1/` y se asignan al producto de esa misma fila. Al final elimina de la tabla los productos que no estén en este Excel, por lo que el catálogo queda exactamente con sus 164 SKUs únicos. El archivo de origen repite el SKU `PLA-4060-COR`, por lo que se importa una sola vez.
+
+Para comprobar la carga, ejecuta después. El resultado esperado es **164 productos**: 81 conservan su imagen actual y los nuevos toman la imagen disponible en la celda C de su fila del Excel.
+
+```sql
+SELECT
+  COUNT(*) AS productos_del_excel,
+  COUNT(*) FILTER (WHERE image_url IS NULL) AS nuevos_sin_imagen
+FROM products;
+
+SELECT sku, name, price, indicator_codes
+FROM products
+WHERE sku IS NOT NULL
+ORDER BY sku
+LIMIT 20;
+```
+
 ### 1. Ejecutar SQL en Supabase
 
 1. Ve al panel de Supabase: https://supabase.com/dashboard/project/pjbmrocrfbzfvivasoxw

@@ -7,9 +7,12 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export type Product = {
   id: string
+  sku: string | null
   name: string
   description: string
   category: string
+  catalog_category: string | null
+  indicator_codes: number[]
   image_url: string | null
   price: number | null
   is_active: boolean

@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog"
 interface Product {
   id: string | number
+  sku?: string | null
   name: string
   description: string
   category: string
@@ -232,7 +233,11 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
               {/* Content */}
               <div className="p-3 sm:p-4 flex flex-col flex-grow">
                 <h3 className="font-semibold text-white text-sm sm:text-base line-clamp-2 mb-1">{product.name}</h3>
+                {product.sku && <p className="text-[10px] sm:text-xs font-mono text-white/45 mb-1">SKU: {product.sku}</p>}
                 <p className="text-xs text-white/50 line-clamp-1 mb-3 hidden sm:block">{product.description}</p>
+                <p className="text-sm font-semibold text-[#8ee79a] mb-3">
+                  {typeof product.price === "number" ? formatPrice(product.price) : "Cotiza con nosotros"}
+                </p>
                 
                 <Button
                   size="sm"
@@ -304,6 +309,10 @@ export function ProductsGrid({ products: rawProducts }: { products: Product[] })
                   <DialogDescription className="text-white/80 text-base mt-4 mb-6">
                     {selectedProduct.description}
                   </DialogDescription>
+                  <div className="space-y-1 text-sm text-white/65">
+                    {selectedProduct.sku && <p><span className="text-white/40">SKU:</span> {selectedProduct.sku}</p>}
+                    <p><span className="text-white/40">Precio:</span> {typeof selectedProduct.price === "number" ? formatPrice(selectedProduct.price) : "Cotiza con nosotros"}</p>
+                  </div>
                 </div>
                 
                 <div className="mt-8">
